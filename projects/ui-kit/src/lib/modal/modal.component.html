@@ -1,0 +1,12 @@
+<form [formGroup]="infoForm" *ngIf="this.infoForm" [@expandedModal]>
+  <div class="buttons">
+    <button type="button" class="remove" (click)="closeModal()">Удалить</button>
+    <button type="button" class="save" (click)="getNewData()">Сохранить</button>
+  </div>
+  <div class="input__container" *ngFor="let field of formArray">
+    <div class="input__item">
+      <span>{{ field[0] }}</span>
+      <input [formControlName]="field[0]" [value]="field[1]" />
+    </div>
+  </div>
+</form>

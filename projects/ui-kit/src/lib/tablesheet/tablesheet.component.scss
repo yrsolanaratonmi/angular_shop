@@ -1,0 +1,161 @@
+@use '../../../../../src/styles/color-variables.scss' as colorVar;
+@import '../../../../../src/styles/mixins.scss';
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px;
+  width: 900px;
+  .wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    .dropdown {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      label {
+        $buttonColor: #434652;
+        @include defaultFont;
+      }
+      select {
+        padding: 6px 8px;
+        border-color: #d0d3da;
+        border-radius: 4px;
+      }
+    }
+    .page__block {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      label {
+        $buttonColor: #434652;
+        @include defaultFont;
+      }
+      input {
+        width: 42px;
+        height: 32px;
+        border: 1px solid #d8dae0;
+        border-radius: 4px;
+        text-align: center;
+      }
+      span {
+        color: #bcbfcc;
+        @include defaultFont;
+      }
+    }
+    .nav__buttons {
+      display: flex;
+      .control__button {
+        height: 32px;
+        width: 32px;
+        padding: 4px, 8px, 4px, 8px;
+        color: #aaafbd;
+        background: #f8f8fa;
+        border: 1px solid #d0d3da;
+        cursor: pointer;
+      }
+      .back {
+        border-radius: 4px 0 0 4px;
+        border-right: none;
+      }
+      .forward {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+  .page__button {
+    padding: 8px, 20px, 8px, 20px;
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    background: colorVar.$activeColor;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 24px;
+  }
+
+  table {
+    border-collapse: collapse;
+    th {
+      padding: 10px 8px;
+      text-align: start;
+      @include defaultFont;
+      color: #737680;
+    }
+    tr {
+      border-top: 1px solid #ebecef;
+      input[type='checkbox'] {
+        accent-color: colorVar.$activeColor;
+        height: 16px;
+        width: 16px;
+        cursor: pointer;
+      }
+      td {
+        padding: 10px 8px 10px 8px;
+        color: colorVar.$buttonColor;
+        @include defaultFont;
+        font-size: 14px;
+      }
+    }
+  }
+  .delete__container {
+    position: relative;
+    margin: 0 auto;
+    width: 475px;
+    padding: 16px 64px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0px 4px 8px 0px #4c5d704d;
+    .close__button {
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    .items__length {
+      font-size: 16px;
+      @include defaultFont;
+      letter-spacing: 0px;
+      text-align: center;
+      color: colorVar.$spanColor;
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+      outline: 0;
+      background: white;
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      justify-content: center;
+      .delete__label {
+        text-align: center;
+        font-size: 16px;
+        @include defaultFont;
+        letter-spacing: 0px;
+        color: colorVar.$buttonColor;
+      }
+    }
+  }
+  .no_items {
+    @include defaultFont;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
